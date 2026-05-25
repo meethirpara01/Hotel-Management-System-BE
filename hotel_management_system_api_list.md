@@ -400,3 +400,60 @@ These are the hardest parts of the entire project.
 
 Once you finish the remaining workflow and dashboard APIs, this will be a very strong full-stack portfolio project.
 
+
+
+
+
+🏨 SINGLE ROOM Titles
+Cozy Single Retreat
+Classic Single Room
+Premium Solo Stay
+Executive Single Suite
+Comfort Single Room
+Urban Single Escape
+Essential Stay Room
+Signature Solo Room
+🛏️ DOUBLE ROOM Titles
+Deluxe Double Comfort
+Premium Double Stay
+Elegant Twin Retreat
+Couples Comfort Room
+Luxury Double Suite
+Royal Double Escape
+Modern Double Residence
+Executive Couple Room
+👑 DELUXE ROOM Titles
+Grand Deluxe Room
+Elite Deluxe Suite
+Premium Skyline Room
+Deluxe Garden View
+Luxury Horizon Suite
+Signature Deluxe Escape
+Imperial Deluxe Stay
+Deluxe Ocean Retreat
+🏰 SUITE ROOM Titles
+Presidential Suite
+Royal Heritage Suite
+Luxury King Suite
+Skyline Presidential Room
+Grand Palace Suite
+Imperial Crown Suite
+Elite Royal Residence
+Platinum Luxury Suite
+🌊 VIEW-BASED Titles
+Ocean View Retreat
+City Skyline Suite
+Garden View Escape
+Mountain View Residence
+Poolside Luxury Room
+Sunset Horizon Suite
+💎 PREMIUM/LUXURY Style Titles
+Velvet Luxe Room
+Aurora Premium Suite
+The Royal Haven
+Golden Crest Suite
+Sapphire Executive Room
+Emerald Elite Stay
+Platinum Horizon Room
+Opulent Comfort Suite
+
