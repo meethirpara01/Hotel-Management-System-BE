@@ -2,18 +2,28 @@ import { Router } from 'express';
 import { forgotPassword, getUser, loginUser, logoutUser, register } from '../controllers/authController.js';
 import multer from 'multer'
 import path from 'path'
+import fs from 'fs'
 import { forgotPasswordValidator, loginValidator, registerValidator } from '../validators/authValidator.js';
 import identifyUser from '../middlewares/authMiddleware.js';
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './src/assets/ProfilePic_images/')
+        const uploadPath = './src/assets/temp/';
+
+        if (!fs.existsSync(uploadPath)) {
+            fs.mkdirSync(uploadPath, {
+                recursive: true
+            });
+        }
+
+        cb(null, uploadPath)
     },
     filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-    }
-})
+        const uniqueName = Date.now() + '-' + Math.round(Math.random() * 1E9);
 
+        cb(null, uniqueName + path.extname(file.originalname))
+    }
+});
 const upload = multer({ storage: storage });
 
 

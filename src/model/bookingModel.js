@@ -23,11 +23,15 @@ const bookingSchema = new mongoose.Schema({
         type: String,
         required: [true, "Number of guest required"]
     },
+    totalAmount: {
+        type: Number,
+        required: [true, "Total Amount of guest required"]
+    },
     status: {
         type: String,
         required: [true, "Status is required"],
         enum: {
-            values: ["PENDING", "CONFIRMED", "CHECKED_IN", "COMPLETED", "CANCELLED"],
+            values: ["PENDING", "CONFORMED", "CHECKED_IN", "COMPLETED", "CANCELLED"],
             message: "Status can only contain PENDING or CONFIRMED or CHECKED_IN or COMPLETED or CANCELLED"
         },
         default: "PENDING"

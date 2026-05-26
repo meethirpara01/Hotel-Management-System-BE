@@ -29,7 +29,7 @@ export const availableRoomsForCustomers = async (req, res) => {
     });
 
     const bookings = await bookingModel.find({
-        status: "CONFIRMED",
+        status: "CONFORMED",
     });
 
     const overlapBookings = bookings.filter((booking) => {
@@ -59,7 +59,7 @@ export const bookRoom = async (req, res) => {
 
     const { userID } = req.user;
     const roomID = req.params.roomId;
-    const { CheckInDate, CheckOutDate, guestCount } = req.body;
+    const { CheckInDate, CheckOutDate, guestCount, totalAmount } = req.body;
 
     let requestedCheckInDate = new Date(CheckInDate);
     let requestedCheckOutDate = new Date(CheckOutDate);
@@ -97,7 +97,7 @@ export const bookRoom = async (req, res) => {
 
     const existingBookings = await bookingModel.find({
         roomID,
-        status: "CONFIRMED"
+        status: "CONFORMED"
     });
 
     const overlapBookings = existingBookings.filter((booking) => {
@@ -128,6 +128,7 @@ export const bookRoom = async (req, res) => {
         checkInDate: finalrequestedCheckInDate,
         checkOutDate: finalrequestedCheckOutDate,
         guestCount: guests,
+        totalAmount,
         status: "PENDING"
     });
 
@@ -142,7 +143,8 @@ export const mybookings = async (req, res) => {
 
     const bookings = await bookingModel.find({
         userID
-    })
+    }).populate("roomID userID");
+
 
     if (!bookings) {
         return res.status(401).json({
@@ -224,7 +226,7 @@ export const approveBooking = async (req, res) => {
         })
     }
 
-    booking.status = "CONFIRMED";
+    booking.status = "CONFORMED";
     booking.save();
 
     return res.status(200).json({
@@ -335,7 +337,7 @@ export const todayCheckins = async (req, res) => {
     
 
     const bookings = await bookingModel.find({
-        status: "CONFIRMED",
+        status: "CONFORMED",
         checkInDate: {
             $gte: today,
             $lt: tomorrow

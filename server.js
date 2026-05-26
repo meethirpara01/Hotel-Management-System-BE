@@ -33,6 +33,17 @@ app.use(
     )
 );
 
+app.use(
+   "/PROFILE_PIC_IMAGES",
+   express.static(
+      path.join(
+         process.cwd(),
+         "src",
+         "assets",
+         "PROFILE_PIC_IMAGES"
+      )
+   )
+);
 
 app.use("/api/auth/", authRoute);
 

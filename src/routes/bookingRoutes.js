@@ -10,7 +10,7 @@ bookingRouter.post("/customer/book/:roomId", identifyUser, bookRoom);
 
 bookingRouter.get("/customer/mybookings", identifyUser, mybookings);
 
-bookingRouter.get("/customer/cancelBooking/:bookingId", identifyUser, cancelBooking);
+bookingRouter.patch("/customer/cancelBooking/:bookingId", identifyUser, cancelBooking);
 
 
 
@@ -31,6 +31,3 @@ bookingRouter.get("/admin/bookings/dashboard/today-checkins", identifyUser, toda
 bookingRouter.get("/admin/bookings/dashboard/today-checkouts", identifyUser, todayCheckouts);
 
 export default bookingRouter;
-
-
-// https://drive.google.com/drive/folders/1Z0n5nVURkb9_rt5va2Yd8isx_tfXkapD?usp=sharing
