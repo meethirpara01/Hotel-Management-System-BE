@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { forgotPassword, getUser, loginUser, logoutUser, register } from '../controllers/authController.js';
+import { forgotPassword, getUser, loginUser, logoutUser, register, updateUserProfile } from '../controllers/authController.js';
 import multer from 'multer'
 import path from 'path'
 import fs from 'fs'
@@ -38,5 +38,7 @@ authRoute.post('/forgotPassword', forgotPasswordValidator, forgotPassword);
 authRoute.get('/logout', logoutUser);
 
 authRoute.get('/get-me', identifyUser, getUser);
+
+authRoute.post('/updateProfile', identifyUser, updateUserProfile);
 
 export default authRoute;

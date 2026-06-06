@@ -11,7 +11,7 @@ export async function register(req, res) {
     const isAlreayExist = await userModel.findOne({ email });
 
     if (isAlreayExist) {
-        res.status(401).json({
+        return res.status(401).json({
             message: "User already exists with this email"
         })
     }
@@ -138,6 +138,33 @@ export async function getUser(req, res) {
             message: "User not Found"
         })
     }
+
+    return res.status(200).json({
+        message: "User Fetched Successfullt",
+        user
+    });
+}
+
+export async function updateUserProfile(req, res) {
+
+    const { userID } = req.user;
+    const { name, email, gender, phone, address } = req.body;
+
+    const user = await userModel.findById(userID);
+
+    if (!user) {
+        return res.status(401).json({
+            message: "User not Found"
+        })
+    }
+
+    if (name) user.name = name;
+    if (email) user.email = email;
+    if (gender) user.gender = gender;
+    if (phone) user.phone = phone;
+    if (address) user.address = address;
+
+    user.save();
 
     return res.status(200).json({
         message: "User Fetched Successfullt",
